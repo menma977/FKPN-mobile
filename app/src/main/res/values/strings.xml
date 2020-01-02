@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">FKPN</string>
+    <string name="logo">Logo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="sponsor">Afiliasi</string>
+    <string name="name">nama</string>
+    <string name="email">Email</string>
+    <string name="validation_password">Konfrimasi Password</string>
+    <string name="account_id">Nomor KTP Lenkap</string>
+    <string name="phone_number">Nomor Telfon</string>
+    <string name="province">Profinsi</string>
+    <string name="district">Kota/Kabupaten</string>
+    <string name="sub_district">Keluarahan</string>
+    <string name="village">Kel/Desa</string>
+    <string name="number_address">Nomor Rumah</string>
+    <string name="description_address">RT/RW. Keterangan Alamat Rumah</string>
+    <string name="position">Posisi</string>
+    <string name="position_description">Geser Ke Kiri Atau Ke Kanan Untuk Menentukan Posisi</string>
+    <string name="alert_massage">Data yang di inputkan harus sesuai KTP</string>
+    <string name="vocer_point">Vocer Point</string>
+    <string name="ticket">Ticket</string>
+    <string name="bonus">Bonus</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="profile">Profile</string>
+    <string name="binary">Binary</string>
+    <string name="package_join">Paket Join</string>
+</resources>
