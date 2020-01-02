@@ -178,7 +178,8 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="0dp"
+                    android:id="@+id/packageJoinButton"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
@@ -191,7 +192,8 @@
                     tools:ignore="ButtonStyle" />
 
                 <Button
-                    android:layout_width="0dp"
+                    android:id="@+id/binaryButton"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
@@ -204,7 +206,7 @@
                     tools:ignore="ButtonStyle" />
 
                 <Button
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
@@ -217,7 +219,8 @@
                     tools:ignore="ButtonStyle" />
 
                 <Button
-                    android:layout_width="0dp"
+                    android:id="@+id/withdrawButton"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"

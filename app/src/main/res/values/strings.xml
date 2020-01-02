@@ -28,4 +28,8 @@
     <string name="profile">Profile</string>
     <string name="binary">Binary</string>
     <string name="package_join">Paket Join</string>
+    <string name="package_1">Rp 500.000</string>
+    <string name="package_2">Rp 5.000.000</string>
+    <string name="package_3">Rp 1.000.000</string>
+    <string name="package_4">Rp 10.000.000</string>
 </resources>

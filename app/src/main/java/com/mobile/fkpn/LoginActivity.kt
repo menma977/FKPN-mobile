@@ -57,8 +57,8 @@ class LoginActivity : AppCompatActivity() {
                     token.set(json.toString())
                     runOnUiThread {
                         goTo = Intent(applicationContext, TokenActivity::class.java)
-                        finish()
                         loading.closeDialog()
+                        finish()
                         startActivity(goTo)
                     }
                 } else {
@@ -80,6 +80,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        auth()
+    }
+
     private fun auth() {
         Timer().schedule(1000) {
             try {
@@ -90,8 +95,8 @@ class LoginActivity : AppCompatActivity() {
                             runOnUiThread {
                                 if (response["data"].toString().toBoolean()) {
                                     goTo = Intent(applicationContext, MainActivity::class.java)
-                                    finish()
                                     loading.closeDialog()
+                                    finish()
                                     startActivity(goTo)
                                 } else {
                                     loading.closeDialog()
@@ -116,8 +121,8 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         runOnUiThread {
                             goTo = Intent(applicationContext, TokenActivity::class.java)
-                            finish()
                             loading.closeDialog()
+                            finish()
                             startActivity(goTo)
                         }
                     }
