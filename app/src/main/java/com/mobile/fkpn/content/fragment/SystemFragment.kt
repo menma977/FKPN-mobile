@@ -1,102 +1,115 @@
 package com.mobile.fkpn.content.fragment
 
-import android.content.Context
-import android.net.Uri
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.mobile.fkpn.R
+import com.mobile.fkpn.TokenActivity
+import com.mobile.fkpn.content.menu.*
+import com.mobile.fkpn.controller.BalanceController
+import com.mobile.fkpn.model.LoadingFragment
+import com.mobile.fkpn.model.Token
+import org.json.JSONObject
+import java.util.*
+import kotlin.concurrent.schedule
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [SystemFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [SystemFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SystemFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var token: Token
+    private lateinit var loadingFragment: LoadingFragment
+    private lateinit var ticket: TextView
+    private lateinit var vocerPoint: TextView
+    private lateinit var deposit: TextView
+    private lateinit var bonus: TextView
+    private lateinit var packageJoin: Button
+    private lateinit var binary: Button
+    private lateinit var depositButton: Button
+    private lateinit var withdraw: Button
+    private lateinit var profileButton: Button
+    private lateinit var response: JSONObject
+    private lateinit var goTo: Intent
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_system, container, false)
-    }
+        val view: View = inflater.inflate(R.layout.fragment_system, container, false)
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
+        ticket = view.findViewById(R.id.ticketTextView)
+        vocerPoint = view.findViewById(R.id.vocerPointTextView)
+        deposit = view.findViewById(R.id.depositTextView)
+        bonus = view.findViewById(R.id.bonusTextView)
+        packageJoin = view.findViewById(R.id.packageJoinButton)
+        binary = view.findViewById(R.id.binaryButton)
+        depositButton = view.findViewById(R.id.depositButton)
+        withdraw = view.findViewById(R.id.withdrawButton)
+        profileButton = view.findViewById(R.id.profileButton)
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        token = Token(view.context)
+        loadingFragment = LoadingFragment(this.requireActivity())
+
+        packageJoin.setOnClickListener {
+            goTo = Intent(view.context, PackageJoinActivity::class.java)
+            startActivity(goTo)
         }
+
+        binary.setOnClickListener {
+            goTo = Intent(view.context, BinaryActivity::class.java)
+            startActivity(goTo)
+        }
+
+        depositButton.setOnClickListener {
+            goTo = Intent(view.context, DepositActivity::class.java)
+            startActivity(goTo)
+        }
+
+        withdraw.setOnClickListener {
+            goTo = Intent(view.context, WithdrawActivity::class.java)
+            startActivity(goTo)
+        }
+
+        profileButton.setOnClickListener {
+            goTo = Intent(view.context, ProfileActivity::class.java)
+            startActivity(goTo)
+        }
+
+        return view
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
+    override fun onStart() {
+        super.onStart()
+        setBalance()
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SystemFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SystemFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun setBalance() {
+        loadingFragment.openDialog()
+        Timer().schedule(1000, 1000) {
+            response = BalanceController(token.auth).execute().get()
+            if (response["code"] == 200) {
+                activity?.runOnUiThread {
+                    ticket.text = response["ticket"].toString()
+                    vocerPoint.text = response["vocerPoint"].toString()
+                    deposit.text = response["deposit"].toString()
+                    bonus.text = response["bonus"].toString()
+                    loadingFragment.closeDialog()
+                    this.cancel()
+                }
+            } else if (response["code"] == 426 || response["code"] == 401) {
+                activity?.runOnUiThread {
+                    goTo = Intent(activity?.applicationContext, TokenActivity::class.java)
+                    loadingFragment.closeDialog()
+                    activity?.finish()
+                    this.cancel()
+                    startActivity(goTo)
                 }
             }
+        }
     }
 }
