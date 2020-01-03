@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.mobile.fkpn.content.MainActivity
+import com.mobile.fkpn.content.HomeActivity
 import com.mobile.fkpn.controller.LoginController
 import com.mobile.fkpn.controller.VerificationController
 import com.mobile.fkpn.model.Loading
@@ -56,10 +56,14 @@ class LoginActivity : AppCompatActivity() {
                     json.put("auth", response["data"].toString())
                     token.set(json.toString())
                     runOnUiThread {
-                        goTo = Intent(applicationContext, TokenActivity::class.java)
-                        loading.closeDialog()
-                        finish()
-                        startActivity(goTo)
+                        Timer().schedule(100) {
+                            runOnUiThread {
+                                goTo = Intent(applicationContext, HomeActivity::class.java)
+                                loading.closeDialog()
+                                finish()
+                                startActivity(goTo)
+                            }
+                        }
                     }
                 } else {
                     runOnUiThread {
@@ -94,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
                         if (response["code"] == 200) {
                             runOnUiThread {
                                 if (response["data"].toString().toBoolean()) {
-                                    goTo = Intent(applicationContext, MainActivity::class.java)
+                                    goTo = Intent(applicationContext, HomeActivity::class.java)
                                     loading.closeDialog()
                                     finish()
                                     startActivity(goTo)

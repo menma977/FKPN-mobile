@@ -6,13 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.mobile.fkpn.content.MainActivity
+import com.mobile.fkpn.content.HomeActivity
 import com.mobile.fkpn.controller.LoginController
-import com.mobile.fkpn.controller.VerificationController
 import com.mobile.fkpn.model.Loading
 import com.mobile.fkpn.model.Token
 import org.json.JSONObject
-import java.lang.Exception
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -47,7 +45,7 @@ class TokenActivity : AppCompatActivity() {
                     json.put("auth", response["data"].toString())
                     token.set(json.toString())
                     runOnUiThread {
-                        goTo = Intent(applicationContext, MainActivity::class.java)
+                        goTo = Intent(applicationContext, HomeActivity::class.java)
                         finish()
                         loading.closeDialog()
                         startActivity(goTo)

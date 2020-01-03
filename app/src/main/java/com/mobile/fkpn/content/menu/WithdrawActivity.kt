@@ -40,38 +40,41 @@ class WithdrawActivity : AppCompatActivity() {
                 val body = HashMap<String, String>()
                 body["nominal"] = withdrawEditText.text.toString()
                 response = WithdrawController(body, token.auth).execute().get()
-                println(response)
-                if (response["code"] == 200) {
-                    runOnUiThread {
-                        loading.closeDialog()
-                        Toast.makeText(
-                            applicationContext,
-                            "Withdraw akan di proses di hari Senin",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                when {
+                    response["code"] == 200 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            Toast.makeText(
+                                applicationContext,
+                                "Withdraw akan di proses di hari Senin",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                } else if (response["code"] == 422) {
-                    runOnUiThread {
-                        loading.closeDialog()
-                        Toast.makeText(
-                            applicationContext,
-                            response["data"].toString()
-                                .replace("nominal", "nominal withdraw"),
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    response["code"] == 422 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            Toast.makeText(
+                                applicationContext,
+                                response["data"].toString()
+                                    .replace("nominal", "nominal withdraw"),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                } else {
-                    runOnUiThread {
-                        loading.closeDialog()
-//                        token.clear()
-//                        Toast.makeText(
-//                            applicationContext,
-//                            "Sessi Login Anda Berakir",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        goTo = Intent(applicationContext, LoginActivity::class.java)
-//                        finish()
-//                        startActivity(goTo)
+                    else -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            token.clear()
+                            Toast.makeText(
+                                applicationContext,
+                                "Sessi Login Anda Berakir",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            goTo = Intent(applicationContext, LoginActivity::class.java)
+                            finish()
+                            startActivity(goTo)
+                        }
                     }
                 }
             }
