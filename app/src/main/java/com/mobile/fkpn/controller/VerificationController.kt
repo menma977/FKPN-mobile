@@ -38,6 +38,5 @@ class VerificationController {
                 return JSONObject("{code: 500, data: 'Your Connection is Lost'}")
             }
         }
-
     }
 }

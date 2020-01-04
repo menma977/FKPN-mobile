@@ -48,7 +48,7 @@ class RequestDepositController(
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            return JSONObject("{code: 500, data: 'Koneksi Anda Hilang'}")
+            return JSONObject("{code: 500, data: 'Terjadi kesalahan saat mencoba terhubung ke server'}")
         }
     }
 }

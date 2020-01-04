@@ -43,7 +43,7 @@ class LoginController(private var body: HashMap<String, String>) :
                 )
             }
         } catch (e: Exception) {
-            return JSONObject("{code: 500, data: 'Koneksi Anda Hilang'}")
+            return JSONObject("{code: 500, data: 'Terjadi kesalahan saat mencoba terhubung ke server'}")
         }
     }
 }

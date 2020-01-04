@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mobile.fkpn.R
+import com.mobile.fkpn.content.fragment.ProfileFragment
 import com.mobile.fkpn.content.fragment.SystemFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -24,8 +25,13 @@ class HomeActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navigation_home -> {
+                R.id.navigation_system -> {
                     val fragment = SystemFragment()
+                    addFragment(fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_profile -> {
+                    val fragment = ProfileFragment()
                     addFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }

@@ -214,7 +214,7 @@ class PackageJoinActivity : AppCompatActivity() {
         )
 
         val optionRow = LinearLayout.LayoutParams(
-            280,
+            300,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         optionRow.gravity = Gravity.CENTER

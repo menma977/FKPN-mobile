@@ -17,7 +17,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".content.menu.ProfileActivity" />
         <activity
             android:name=".content.menu.DepositActivity"
             android:label="@string/deposit">
@@ -57,10 +56,13 @@
             android:label="@string/register">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
+                android:value=".content.HomeActivity" />
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

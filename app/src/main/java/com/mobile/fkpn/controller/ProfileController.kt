@@ -29,12 +29,12 @@ class ProfileController(private var token: String) : AsyncTask<Void, Void, JSONO
             val convertJSON = JSONObject(inputData)
             input.close()
             return if (response.isSuccessful) {
-                JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
+                JSONObject().put("code", response.code()).put("data", convertJSON["response"])
             } else {
-                JSONObject("{code: ${response.code()}, data: '${convertJSON["message"]}'}")
+                JSONObject().put("code", response.code()).put("data", convertJSON["message"])
             }
         } catch (e: Exception) {
-            return JSONObject("{code: 500, data: 'Your Connection is Lost'}")
+            return JSONObject().put("code", 500).put("data", "Your Connection is Lost")
         }
     }
 }

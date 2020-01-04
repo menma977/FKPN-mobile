@@ -41,4 +41,20 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_system">System</string>
     <string name="banner">Banner</string>
+
+    <string name="account">Akun</string>
+    <string name="update_profile">Ubah Profile</string>
+    <string name="password_x">Password Transaksi</string>
+    <string name="security">Keamanan</string>
+    <string name="logout">Logout</string>
+    <string name="upload_ktp">Upload KTP</string>
+    <string name="refresh">Refresh</string>
+    <string name="bank">BANK</string>
+    <string name="bankUsername">Nama</string>
+    <string name="bankAccount">Nomor Rekening</string>
+    <string name="transfer">Transfer</string>
+    <string name="nominal">Nominal</string>
+    <string name="copy">Copy to Clipboard</string>
+    <string name="invoice">Nominal Transfer</string>
+    <string name="register_down_line">Register</string>
 </resources>

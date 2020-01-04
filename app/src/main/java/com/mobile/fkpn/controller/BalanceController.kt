@@ -35,7 +35,7 @@ class BalanceController(private var token: String) : AsyncTask<Void, Void, JSONO
                 JSONObject("{code: ${response.code()}, data: 'Sesi anda Sudah Habis'}")
             }
         } catch (e: Exception) {
-            return JSONObject("{code: 500, data: 'Koneksi Anda Hilang'}")
+            return JSONObject("{code: 500, data: 'Terjadi kesalahan saat mencoba terhubung ke server'}")
         }
     }
 }

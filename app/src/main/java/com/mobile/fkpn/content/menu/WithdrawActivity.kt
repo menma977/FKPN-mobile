@@ -1,13 +1,13 @@
 package com.mobile.fkpn.content.menu
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.mobile.fkpn.LoginActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mobile.fkpn.R
+import com.mobile.fkpn.TokenActivity
 import com.mobile.fkpn.controller.WithdrawController
 import com.mobile.fkpn.model.Loading
 import com.mobile.fkpn.model.Token
@@ -71,7 +71,7 @@ class WithdrawActivity : AppCompatActivity() {
                                 "Sessi Login Anda Berakir",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            goTo = Intent(applicationContext, LoginActivity::class.java)
+                            goTo = Intent(applicationContext, TokenActivity::class.java)
                             finish()
                             startActivity(goTo)
                         }

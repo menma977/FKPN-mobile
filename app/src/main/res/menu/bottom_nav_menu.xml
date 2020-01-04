@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_system"
         android:icon="@drawable/ic_local_post_office"
         android:title="@string/title_system" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_local_post_office"
+        android:title="@string/profile" />
 </menu>

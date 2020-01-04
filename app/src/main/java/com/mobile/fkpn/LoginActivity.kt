@@ -24,7 +24,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
-    private lateinit var register: Button
     private lateinit var response: JSONObject
     private lateinit var goTo: Intent
 
@@ -35,13 +34,9 @@ class LoginActivity : AppCompatActivity() {
         username = findViewById(R.id.usernameTextView)
         password = findViewById(R.id.passwordTextView)
         login = findViewById(R.id.loginButton)
-        register = findViewById(R.id.registerButton)
 
         token = Token(this)
         loading = Loading(this)
-        loading.openDialog()
-
-        auth()
 
         login.setOnClickListener {
             loading.openDialog()
@@ -74,76 +69,6 @@ class LoginActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                }
-            }
-        }
-
-        register.setOnClickListener {
-            goTo = Intent(this, RegisterActivity::class.java)
-            startActivity(goTo)
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        auth()
-    }
-
-    private fun auth() {
-        Timer().schedule(1000) {
-            try {
-                if (token.auth.isNotEmpty()) {
-                    if (token.username.isNotEmpty()) {
-                        response = VerificationController.Get(token.auth).execute().get()
-                        if (response["code"] == 200) {
-                            runOnUiThread {
-                                if (response["data"].toString().toBoolean()) {
-                                    goTo = Intent(applicationContext, HomeActivity::class.java)
-                                    loading.closeDialog()
-                                    finish()
-                                    startActivity(goTo)
-                                } else {
-                                    loading.closeDialog()
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "Sessi login anda sudah habis",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-
-                            }
-                        } else {
-                            runOnUiThread {
-                                loading.closeDialog()
-                                Toast.makeText(
-                                    applicationContext,
-                                    "Sessi login anda sudah habis",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    } else {
-                        runOnUiThread {
-                            goTo = Intent(applicationContext, TokenActivity::class.java)
-                            loading.closeDialog()
-                            finish()
-                            startActivity(goTo)
-                        }
-                    }
-                } else {
-                    runOnUiThread {
-                        loading.closeDialog()
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                runOnUiThread {
-                    loading.closeDialog()
-                    Toast.makeText(
-                        applicationContext,
-                        "Sessi login anda sudah habis",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
             }
         }
