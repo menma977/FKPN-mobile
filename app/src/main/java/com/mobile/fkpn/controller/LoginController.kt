@@ -25,6 +25,7 @@ class LoginController(private var body: HashMap<String, String>) :
                 BufferedReader(InputStreamReader(response.body().byteStream()))
 
             val inputData: String = input.readLine()
+            println(inputData)
             val convertJSON = JSONObject(inputData)
             input.close()
             return if (response.isSuccessful) {

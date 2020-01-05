@@ -100,6 +100,32 @@
             tools:targetApi="lollipop" />
 
         <EditText
+            android:id="@+id/passwordXEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:hint="@string/password_x"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/Info"
+            tools:targetApi="lollipop" />
+
+        <EditText
+            android:id="@+id/validationPasswordXEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:hint="@string/validation_password_x"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/Info"
+            tools:targetApi="lollipop" />
+
+        <EditText
             android:id="@+id/accountIdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

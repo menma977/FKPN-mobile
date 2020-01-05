@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.Toast
+import com.mobile.fkpn.content.HomeActivity
 import com.mobile.fkpn.controller.RegisterController
 import com.mobile.fkpn.model.Loading
 import com.mobile.fkpn.model.Token
@@ -26,6 +27,8 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var validationPassword: EditText
+    private lateinit var passwordX: EditText
+    private lateinit var validationPasswordX: EditText
     private lateinit var ktpNumber: EditText
     private lateinit var phone: EditText
     private lateinit var province: EditText
@@ -49,6 +52,8 @@ class RegisterActivity : AppCompatActivity() {
         email = findViewById(R.id.emailEditText)
         password = findViewById(R.id.passwordEditText)
         validationPassword = findViewById(R.id.validationPasswordEditText)
+        passwordX = findViewById(R.id.passwordXEditText)
+        validationPasswordX = findViewById(R.id.validationPasswordXEditText)
         ktpNumber = findViewById(R.id.accountIdEditText)
         phone = findViewById(R.id.phoneEditText)
         province = findViewById(R.id.provinceEditText)
@@ -76,6 +81,8 @@ class RegisterActivity : AppCompatActivity() {
                 parameter["email"] = email.text.toString()
                 parameter["password"] = password.text.toString()
                 parameter["c_password"] = validationPassword.text.toString()
+                parameter["password_x"] = password.text.toString()
+                parameter["c_password_x"] = validationPassword.text.toString()
                 parameter["ktp_number"] = ktpNumber.text.toString()
                 parameter["phone"] = phone.text.toString()
                 parameter["province"] = province.text.toString()
@@ -94,7 +101,7 @@ class RegisterActivity : AppCompatActivity() {
                         json.put("auth", response["data"].toString())
                         token.set(json.toString())
                         loading.closeDialog()
-                        goTo = Intent(applicationContext, TokenActivity::class.java)
+                        goTo = Intent(applicationContext, HomeActivity::class.java)
                         startActivity(goTo)
                     }
                 } else {
@@ -122,6 +129,17 @@ class RegisterActivity : AppCompatActivity() {
                         response["name"].toString() in "c_password" -> {
                             massage = response["data"].toString()
                                 .replace(response["name"].toString(), "Konfrimasi Password")
+                        }
+                        response["name"].toString() in "password_x" -> {
+                            massage = response["data"].toString()
+                                .replace(response["name"].toString(), "Password Transaksi")
+                        }
+                        response["name"].toString() in "c_password_x" -> {
+                            massage = response["data"].toString()
+                                .replace(
+                                    response["name"].toString(),
+                                    "Konfrimasi Password Transaksi"
+                                )
                         }
                         response["name"].toString() in "ktp_number" -> {
                             massage = response["data"].toString()

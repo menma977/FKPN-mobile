@@ -57,4 +57,5 @@
     <string name="copy">Copy to Clipboard</string>
     <string name="invoice">Nominal Transfer</string>
     <string name="register_down_line">Register</string>
+    <string name="validation_password_x">Validasi Password Teransaksi</string>
 </resources>
