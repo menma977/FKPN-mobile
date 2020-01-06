@@ -58,4 +58,9 @@
     <string name="invoice">Nominal Transfer</string>
     <string name="register_down_line">Register</string>
     <string name="validation_password_x">Validasi Password Teransaksi</string>
+    <string name="send_ticket">Kirim Tiket</string>
+    <string name="ticket_exp_9999999">Jumlah Ticket exp : 9999999</string>
+    <string name="username_yang_akan_anda_kirimi_tiket">Username yang akan anda kirimi tiket</string>
+    <string name="old_password">Password Lama</string>
+    <string name="save">Simpan</string>
 </resources>

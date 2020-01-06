@@ -63,8 +63,8 @@
                         android:layout_height="50dp"
                         android:background="@drawable/circle_button_default"
                         android:contentDescription="@string/refresh"
-                        android:tint="@color/colorAccent"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_sync" />
 
                 </LinearLayout>
 
@@ -78,6 +78,7 @@
                     tools:ignore="UselessParent">
 
                     <LinearLayout
+                        android:id="@+id/ticketLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
@@ -107,6 +108,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/vocerPointLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
@@ -147,6 +149,7 @@
                     tools:ignore="UselessParent">
 
                     <LinearLayout
+                        android:id="@+id/depositListLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
@@ -176,6 +179,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/bonusLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
@@ -244,7 +248,7 @@
                         android:background="@drawable/circle_button_default"
                         android:contentDescription="@string/package_join"
                         android:tint="@color/colorPrimary"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        app:srcCompat="@drawable/ic_storage" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -268,8 +272,8 @@
                         android:layout_height="50dp"
                         android:background="@drawable/circle_button_default"
                         android:contentDescription="@string/deposit"
-                        android:tint="@color/Primary"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_archive" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -293,8 +297,8 @@
                         android:layout_height="50dp"
                         android:background="@drawable/circle_button_default"
                         android:contentDescription="@string/withdraw"
-                        android:tint="@color/Primary"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_unarchive" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -343,7 +347,7 @@
                         android:background="@drawable/circle_button_default"
                         android:contentDescription="@string/binary"
                         android:tint="@color/colorPrimary"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        app:srcCompat="@drawable/ic_device_hub" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -367,8 +371,8 @@
                         android:layout_height="50dp"
                         android:background="@drawable/circle_button_default"
                         android:contentDescription="@string/register_down_line"
-                        android:tint="@color/Primary"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_group_add" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -387,18 +391,19 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/ticketButton"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/circle_button_default"
-                        android:contentDescription="@string/withdraw"
-                        android:tint="@color/Primary"
-                        app:srcCompat="@drawable/ic_local_post_office" />
+                        android:contentDescription="@string/ticket"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_confirmation_number" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/withdraw"
+                        android:text="@string/ticket"
                         android:textColor="@color/colorPrimary" />
 
                 </LinearLayout>

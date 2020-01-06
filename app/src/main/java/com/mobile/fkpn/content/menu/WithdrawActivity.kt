@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.TokenActivity
 import com.mobile.fkpn.controller.WithdrawController
@@ -49,6 +50,14 @@ class WithdrawActivity : AppCompatActivity() {
                                 "Withdraw akan di proses di hari Senin",
                                 Toast.LENGTH_SHORT
                             ).show()
+                        }
+                    }
+                    response["code"] == 401 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            goTo = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(goTo)
+                            finish()
                         }
                     }
                     response["code"] == 422 -> {

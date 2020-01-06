@@ -37,13 +37,13 @@ class InvestmentController(private var token: String) : AsyncTask<Void, Void, JS
                 json
             } else {
                 json.put(422)
-                json.put("Your Connection is Lost")
+                json.put("Koneksi Anda Hilang")
                 json
             }
         } catch (e: Exception) {
             e.printStackTrace()
             json.put(500)
-            json.put("Your Connection is Lost")
+            json.put("Koneksi Anda Hilang")
             return json
         }
     }

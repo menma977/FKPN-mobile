@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.controller.InvestmentController
 import com.mobile.fkpn.controller.StorePackageController
@@ -54,23 +55,35 @@ class PackageJoinActivity : AppCompatActivity() {
             loading.openDialog()
             Timer().schedule(100) {
                 val res = StorePackageController(token.auth, "1").execute().get()
-                if (res["code"] == 200) {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
+                when {
+                    res["code"] == 200 -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                            finish()
+                        }
                     }
-                } else {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
+                    res["code"] == 401 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            goTo = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(goTo)
+                            finish()
+                        }
+                    }
+                    else -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                        }
                     }
                 }
             }
@@ -80,24 +93,35 @@ class PackageJoinActivity : AppCompatActivity() {
             loading.openDialog()
             Timer().schedule(100) {
                 val res = StorePackageController(token.auth, "2").execute().get()
-                if (res["code"] == 200) {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
-                        finish()
+                when {
+                    res["code"] == 200 -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                            finish()
+                        }
                     }
-                } else {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
+                    res["code"] == 401 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            goTo = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(goTo)
+                            finish()
+                        }
+                    }
+                    else -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                        }
                     }
                 }
             }
@@ -107,24 +131,35 @@ class PackageJoinActivity : AppCompatActivity() {
             loading.openDialog()
             Timer().schedule(100) {
                 val res = StorePackageController(token.auth, "3").execute().get()
-                if (res["code"] == 200) {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
-                        finish()
+                when {
+                    res["code"] == 200 -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                            finish()
+                        }
                     }
-                } else {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
+                    res["code"] == 401 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            goTo = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(goTo)
+                            finish()
+                        }
+                    }
+                    else -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                        }
                     }
                 }
             }
@@ -134,24 +169,35 @@ class PackageJoinActivity : AppCompatActivity() {
             loading.openDialog()
             Timer().schedule(100) {
                 val res = StorePackageController(token.auth, "4").execute().get()
-                if (res["code"] == 200) {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
-                        finish()
+                when {
+                    res["code"] == 200 -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                            finish()
+                        }
                     }
-                } else {
-                    runOnUiThread {
-                        Toast.makeText(
-                            applicationContext,
-                            res["data"].toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                        loading.closeDialog()
+                    res["code"] == 401 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            goTo = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(goTo)
+                            finish()
+                        }
+                    }
+                    else -> {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                res["data"].toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loading.closeDialog()
+                        }
                     }
                 }
             }
@@ -160,48 +206,54 @@ class PackageJoinActivity : AppCompatActivity() {
 
     private fun getListInvest() {
         response = InvestmentController(token.auth).execute().get()
-        if (response[0] == 200) {
-            val dataResponse = response.getJSONObject(1)
-            if (dataResponse["status"] == 0) {
+        when {
+            response[0] == 200 -> {
+                val dataResponse = response.getJSONObject(1)
+                when {
+                    dataResponse["status"] == 0 -> {
+                        package1.isEnabled = false
+                        package2.isEnabled = false
+                        package3.isEnabled = false
+                        package4.isEnabled = false
+                    }
+                    else -> {
+                        when {
+                            dataResponse["join"] == 500000 -> {
+                                package1.isEnabled = true
+                                package2.isEnabled = true
+                                package3.isEnabled = true
+                                package4.isEnabled = true
+                            }
+                            dataResponse["join"] == 1000000 -> {
+                                package1.isEnabled = false
+                                package2.isEnabled = true
+                                package3.isEnabled = true
+                                package4.isEnabled = true
+                            }
+                            dataResponse["join"] == 5000000 -> {
+                                package1.isEnabled = false
+                                package2.isEnabled = true
+                                package3.isEnabled = false
+                                package4.isEnabled = true
+                            }
+                            else -> {
+                                package1.isEnabled = false
+                                package2.isEnabled = false
+                                package3.isEnabled = false
+                                package4.isEnabled = true
+                            }
+                        }
+                    }
+                }
+                generateTable()
+            }
+            else -> {
                 package1.isEnabled = false
                 package2.isEnabled = false
                 package3.isEnabled = false
                 package4.isEnabled = false
-            } else {
-                when {
-                    dataResponse["join"] == 500000 -> {
-                        package1.isEnabled = true
-                        package2.isEnabled = true
-                        package3.isEnabled = true
-                        package4.isEnabled = true
-                    }
-                    dataResponse["join"] == 1000000 -> {
-                        package1.isEnabled = false
-                        package2.isEnabled = true
-                        package3.isEnabled = true
-                        package4.isEnabled = true
-                    }
-                    dataResponse["join"] == 5000000 -> {
-                        package1.isEnabled = false
-                        package2.isEnabled = true
-                        package3.isEnabled = false
-                        package4.isEnabled = true
-                    }
-                    else -> {
-                        package1.isEnabled = false
-                        package2.isEnabled = false
-                        package3.isEnabled = false
-                        package4.isEnabled = true
-                    }
-                }
+                loading.closeDialog()
             }
-            generateTable()
-        } else {
-            package1.isEnabled = false
-            package2.isEnabled = false
-            package3.isEnabled = false
-            package4.isEnabled = false
-            loading.closeDialog()
         }
     }
 

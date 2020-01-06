@@ -10,9 +10,12 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.mobile.fkpn.LoginActivity
+import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.TokenActivity
+import com.mobile.fkpn.content.profile.password.PasswordActivity
 import com.mobile.fkpn.controller.ImageGeneratorController
+import com.mobile.fkpn.controller.LogoutController
 import com.mobile.fkpn.controller.ProfileController
 import com.mobile.fkpn.model.LoadingFragment
 import com.mobile.fkpn.model.Token
@@ -33,6 +36,7 @@ class ProfileFragment : Fragment() {
     private lateinit var phone: TextView
     private lateinit var alertKTP: TextView
     private lateinit var logout: Button
+    private lateinit var password: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,16 +49,28 @@ class ProfileFragment : Fragment() {
         phone = view.findViewById(R.id.phoneTextView)
         alertKTP = view.findViewById(R.id.alertTextView)
         logout = view.findViewById(R.id.logoutButton)
+        password = view.findViewById(R.id.passwordButton)
 
         token = Token(view.context)
         loadingFragment = LoadingFragment(this.requireActivity())
 
         logout.setOnClickListener {
-            token.clear()
-            goTo = Intent(activity, LoginActivity::class.java)
-            activity?.finish()
+            Timer().schedule(100) {
+                response = LogoutController(token.auth).execute().get()
+                token.clear()
+                activity?.runOnUiThread {
+                    goTo = Intent(activity, LoginActivity::class.java)
+                    activity?.finish()
+                    startActivity(goTo)
+                }
+            }
+        }
+
+        password.setOnClickListener {
+            goTo = Intent(activity, PasswordActivity::class.java)
             startActivity(goTo)
         }
+
         return view
     }
 
@@ -82,7 +98,7 @@ class ProfileFragment : Fragment() {
                 }
             } else if (response["code"] == 426 || response["code"] == 401) {
                 activity?.runOnUiThread {
-                    goTo = Intent(activity?.applicationContext, TokenActivity::class.java)
+                    goTo = Intent(activity?.applicationContext, MainActivity::class.java)
                     activity?.finish()
                     loadingFragment.closeDialog()
                     startActivity(goTo)

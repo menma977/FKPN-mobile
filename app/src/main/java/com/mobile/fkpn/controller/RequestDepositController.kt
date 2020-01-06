@@ -34,8 +34,8 @@ class RequestDepositController(
             return if (response.isSuccessful) {
                 JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
             } else {
-                JSONObject(
-                    "{code: ${response.code()}, data: '${convertJSON
+                JSONObject().put("code", response.code()).put(
+                    "data", convertJSON
                         .getJSONObject("errors")
                         .getJSONArray(
                             convertJSON
@@ -43,7 +43,6 @@ class RequestDepositController(
                                 .names()[0]
                                 .toString()
                         )[0]
-                    }'}"
                 )
             }
         } catch (e: Exception) {

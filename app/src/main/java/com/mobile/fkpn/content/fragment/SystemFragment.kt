@@ -6,16 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.RegisterActivity
 import com.mobile.fkpn.TokenActivity
-import com.mobile.fkpn.content.menu.BinaryActivity
-import com.mobile.fkpn.content.menu.DepositActivity
-import com.mobile.fkpn.content.menu.PackageJoinActivity
-import com.mobile.fkpn.content.menu.WithdrawActivity
+import com.mobile.fkpn.content.menu.*
+import com.mobile.fkpn.content.menu.bonus.BonusListActivity
+import com.mobile.fkpn.content.menu.deposit.DepositListActivity
+import com.mobile.fkpn.content.menu.ticket.TicketListActivity
+import com.mobile.fkpn.content.menu.vocerPoint.VocerPointListActivity
 import com.mobile.fkpn.controller.BalanceController
 import com.mobile.fkpn.controller.ProfileController
 import com.mobile.fkpn.model.LoadingFragment
@@ -36,9 +39,14 @@ class SystemFragment : Fragment() {
     private lateinit var packageJoin: ImageButton
     private lateinit var binary: ImageButton
     private lateinit var depositButton: ImageButton
+    private lateinit var ticketButton: ImageButton
     private lateinit var withdraw: ImageButton
     private lateinit var refresh: ImageButton
     private lateinit var register: ImageButton
+    private lateinit var ticketLinearLayout: LinearLayout
+    private lateinit var vocerPointLinearLayout: LinearLayout
+    private lateinit var bonusLinearLayout: LinearLayout
+    private lateinit var depositLinearLayout: LinearLayout
     private lateinit var response: JSONObject
     private lateinit var goTo: Intent
     private var premium = 0
@@ -61,6 +69,14 @@ class SystemFragment : Fragment() {
         withdraw = view.findViewById(R.id.withdrawButton)
         refresh = view.findViewById(R.id.refreshButton)
         register = view.findViewById(R.id.registerButton)
+        ticketButton = view.findViewById(R.id.ticketButton)
+
+        //linear layout
+        ticketLinearLayout = view.findViewById(R.id.ticketLinearLayout)
+        vocerPointLinearLayout = view.findViewById(R.id.vocerPointLinearLayout)
+        bonusLinearLayout = view.findViewById(R.id.bonusLinearLayout)
+        bonusLinearLayout = view.findViewById(R.id.bonusLinearLayout)
+        depositLinearLayout = view.findViewById(R.id.depositListLinearLayout)
 
         token = Token(view.context)
         loadingFragment = LoadingFragment(this.requireActivity())
@@ -104,6 +120,32 @@ class SystemFragment : Fragment() {
             startActivity(goTo)
         }
 
+        ticketButton.setOnClickListener {
+            goTo = Intent(view.context, TicketActivity::class.java)
+            startActivity(goTo)
+        }
+
+        //linear layout
+        ticketLinearLayout.setOnClickListener {
+            goTo = Intent(view.context, TicketListActivity::class.java)
+            startActivity(goTo)
+        }
+
+        vocerPointLinearLayout.setOnClickListener {
+            goTo = Intent(view.context, VocerPointListActivity::class.java)
+            startActivity(goTo)
+        }
+
+        bonusLinearLayout.setOnClickListener {
+            goTo = Intent(view.context, BonusListActivity::class.java)
+            startActivity(goTo)
+        }
+
+        depositLinearLayout.setOnClickListener {
+            goTo = Intent(view.context, DepositListActivity::class.java)
+            startActivity(goTo)
+        }
+
         return view
     }
 
@@ -127,7 +169,7 @@ class SystemFragment : Fragment() {
                 }
             } else if (response["code"] == 426 || response["code"] == 401) {
                 activity?.runOnUiThread {
-                    goTo = Intent(activity?.applicationContext, TokenActivity::class.java)
+                    goTo = Intent(activity?.applicationContext, MainActivity::class.java)
                     loadingFragment.closeDialog()
                     activity?.finish()
                     this.cancel()
@@ -148,7 +190,7 @@ class SystemFragment : Fragment() {
                 }
             } else if (response["code"] == 426 || response["code"] == 401) {
                 activity?.runOnUiThread {
-                    goTo = Intent(activity?.applicationContext, TokenActivity::class.java)
+                    goTo = Intent(activity?.applicationContext, MainActivity::class.java)
                     activity?.finish()
                     loadingFragment.closeDialog()
                     startActivity(goTo)

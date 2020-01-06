@@ -3,6 +3,7 @@ package com.mobile.fkpn.content.menu
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.controller.RequestDepositController
 import com.mobile.fkpn.controller.ShowDepositController
@@ -24,6 +26,7 @@ class DepositActivity : AppCompatActivity() {
     private lateinit var token: Token
     private lateinit var loading: Loading
     private lateinit var response: JSONObject
+    private lateinit var goTo: Intent
     private lateinit var deposit: TextView
     private lateinit var description: TextView
     private lateinit var bank: TextView
@@ -79,6 +82,14 @@ class DepositActivity : AppCompatActivity() {
                             finish()
                         }
                     }
+                    response["code"] == 401 -> {
+                        runOnUiThread {
+                            loading.closeDialog()
+                            goTo = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(goTo)
+                            finish()
+                        }
+                    }
                     else -> {
                         runOnUiThread {
                             loading.closeDialog()
@@ -122,6 +133,14 @@ class DepositActivity : AppCompatActivity() {
                         nominal.text = response.getJSONObject("data")["package"].toString()
                         bankAccount.text =
                             response.getJSONObject("data")["accountNumber"].toString()
+                    }
+                }
+                response["code"] == 401 -> {
+                    runOnUiThread {
+                        loading.closeDialog()
+                        goTo = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(goTo)
+                        finish()
                     }
                 }
                 response["code"] == 201 -> {

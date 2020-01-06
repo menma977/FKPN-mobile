@@ -92,7 +92,7 @@ class RegisterActivity : AppCompatActivity() {
                 parameter["number_address"] = numberAddress.text.toString()
                 parameter["description_address"] = descriptionAddress.text.toString()
                 parameter["position"] = position.progress.toString()
-                response = RegisterController(parameter).execute().get()
+                response = RegisterController(parameter, token.auth).execute().get()
                 if (response["code"] == 200) {
                     runOnUiThread {
                         loading.closeDialog()

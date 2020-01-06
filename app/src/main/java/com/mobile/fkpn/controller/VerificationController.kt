@@ -32,10 +32,19 @@ class VerificationController {
                 return if (response.isSuccessful) {
                     JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
                 } else {
-                    JSONObject("{code: ${response.code()}, data: '${convertJSON["message"]}'}")
+                    JSONObject().put("code", response.code()).put(
+                        "data", convertJSON
+                            .getJSONObject("errors")
+                            .getJSONArray(
+                                convertJSON
+                                    .getJSONObject("errors")
+                                    .names()[0]
+                                    .toString()
+                            )[0]
+                    )
                 }
             } catch (e: Exception) {
-                return JSONObject("{code: 500, data: 'Your Connection is Lost'}")
+                return JSONObject("{code: 500, data: 'Koneksi Anda Hilang'}")
             }
         }
     }

@@ -7,6 +7,8 @@
     <dist:module dist:instant="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +19,48 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".content.profile.password.PasswordActivity"
+            android:label="@string/password">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.menu.deposit.DepositListActivity"
+            android:label="@string/deposit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.menu.bonus.BonusListActivity"
+            android:label="@string/bonus">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.menu.vocerPoint.VocerPointListActivity"
+            android:label="@string/vocer_point">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.menu.ticket.TicketListActivity"
+            android:label="Ticket List">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.menu.TicketActivity"
+            android:label="@string/ticket">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
         <activity
             android:name=".content.menu.DepositActivity"
             android:label="@string/deposit">

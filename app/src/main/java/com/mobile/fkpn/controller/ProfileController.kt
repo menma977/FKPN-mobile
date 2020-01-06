@@ -31,10 +31,19 @@ class ProfileController(private var token: String) : AsyncTask<Void, Void, JSONO
             return if (response.isSuccessful) {
                 JSONObject().put("code", response.code()).put("data", convertJSON["response"])
             } else {
-                JSONObject().put("code", response.code()).put("data", convertJSON["message"])
+                JSONObject().put("code", response.code()).put(
+                    "data", convertJSON
+                        .getJSONObject("errors")
+                        .getJSONArray(
+                            convertJSON
+                                .getJSONObject("errors")
+                                .names()[0]
+                                .toString()
+                        )[0]
+                )
             }
         } catch (e: Exception) {
-            return JSONObject().put("code", 500).put("data", "Your Connection is Lost")
+            return JSONObject().put("code", 500).put("data", "Koneksi Anda Hilang")
         }
     }
 }

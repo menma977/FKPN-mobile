@@ -8,7 +8,7 @@ import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-class RegisterController(private var body: HashMap<String, String>) :
+class RegisterController(private var body: HashMap<String, String>, private var token: String) :
     AsyncTask<Void, Void, JSONObject>() {
     override fun doInBackground(vararg params: Void?): JSONObject {
         try {
@@ -19,6 +19,7 @@ class RegisterController(private var body: HashMap<String, String>) :
                 .url("${Url.get()}register")
                 .method("POST", sendBody)
                 .addHeader("X-Requested-With", "XMLHttpRequest")
+                .addHeader("Authorization", "Bearer $token")
                 .build()
             val response: Response = client.newCall(request).execute()
             val input =
@@ -30,11 +31,8 @@ class RegisterController(private var body: HashMap<String, String>) :
             return if (response.isSuccessful) {
                 JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
             } else {
-                JSONObject(
-                    "{code: ${response.code()}, name: '${convertJSON
-                        .getJSONObject("errors")
-                        .names()[0]
-                    }', data: '${convertJSON
+                JSONObject().put("code", response.code()).put(
+                    "data", convertJSON
                         .getJSONObject("errors")
                         .getJSONArray(
                             convertJSON
@@ -42,7 +40,6 @@ class RegisterController(private var body: HashMap<String, String>) :
                                 .names()[0]
                                 .toString()
                         )[0]
-                    }'}"
                 )
             }
         } catch (e: Exception) {

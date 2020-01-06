@@ -25,23 +25,12 @@ class LoginController(private var body: HashMap<String, String>) :
                 BufferedReader(InputStreamReader(response.body().byteStream()))
 
             val inputData: String = input.readLine()
-            println(inputData)
             val convertJSON = JSONObject(inputData)
             input.close()
             return if (response.isSuccessful) {
-                JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
+                JSONObject().put("code", response.code()).put("data", convertJSON["response"])
             } else {
-                JSONObject(
-                    "{code: ${response.code()}, data: '${convertJSON
-                        .getJSONObject("errors")
-                        .getJSONArray(
-                            convertJSON
-                                .getJSONObject("errors")
-                                .names()[0]
-                                .toString()
-                        )[0]
-                    }'}"
-                )
+                JSONObject().put("code", response.code()).put("data", convertJSON["message"])
             }
         } catch (e: Exception) {
             return JSONObject("{code: 500, data: 'Terjadi kesalahan saat mencoba terhubung ke server'}")

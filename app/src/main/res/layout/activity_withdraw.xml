@@ -46,7 +46,7 @@
                 android:hint="exp : 9999999"
                 android:inputType="numberDecimal"
                 android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/Info" />
+                android:textColorHint="@color/colorPrimaryLight" />
 
         </LinearLayout>
 

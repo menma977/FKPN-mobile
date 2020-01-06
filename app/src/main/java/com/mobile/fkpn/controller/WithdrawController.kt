@@ -31,8 +31,8 @@ class WithdrawController(private var body: HashMap<String, String>, private var 
             return if (response.isSuccessful) {
                 JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
             } else {
-                JSONObject(
-                    "{code: ${response.code()}, data: '${convertJSON
+                JSONObject().put("code", response.code()).put(
+                    "data", convertJSON
                         .getJSONObject("errors")
                         .getJSONArray(
                             convertJSON
@@ -40,7 +40,6 @@ class WithdrawController(private var body: HashMap<String, String>, private var 
                                 .names()[0]
                                 .toString()
                         )[0]
-                    }'}"
                 )
             }
         } catch (e: Exception) {

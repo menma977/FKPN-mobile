@@ -32,8 +32,8 @@ class StorePackageController(private var token: String, private var body: String
             return if (response.isSuccessful) {
                 JSONObject("{code: ${response.code()}, data: '${convertJSON["response"]}'}")
             } else {
-                JSONObject(
-                    "{code: ${response.code()}, data: '${convertJSON
+                JSONObject().put("code", response.code()).put(
+                    "data", convertJSON
                         .getJSONObject("errors")
                         .getJSONArray(
                             convertJSON
@@ -41,12 +41,11 @@ class StorePackageController(private var token: String, private var body: String
                                 .names()[0]
                                 .toString()
                         )[0]
-                    }'}"
                 )
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            return JSONObject("{code: 500, data: 'Your Connection is Lost'}")
+            return JSONObject("{code: 500, data: 'Koneksi Anda Hilang'}")
         }
     }
 }
