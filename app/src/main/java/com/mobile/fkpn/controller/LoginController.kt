@@ -7,6 +7,7 @@ import com.squareup.okhttp.*
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.io.Reader
 
 class LoginController(private var body: HashMap<String, String>) :
     AsyncTask<Void, Void, JSONObject>() {
@@ -21,8 +22,7 @@ class LoginController(private var body: HashMap<String, String>) :
                 .addHeader("X-Requested-With", "XMLHttpRequest")
                 .build()
             val response: Response = client.newCall(request).execute()
-            val input =
-                BufferedReader(InputStreamReader(response.body().byteStream()))
+            val input = BufferedReader(InputStreamReader(response.body().byteStream()))
 
             val inputData: String = input.readLine()
             val convertJSON = JSONObject(inputData)

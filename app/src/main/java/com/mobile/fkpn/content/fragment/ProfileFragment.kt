@@ -1,6 +1,7 @@
 package com.mobile.fkpn.content.fragment
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.mobile.fkpn.LoginActivity
 import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.TokenActivity
+import com.mobile.fkpn.content.profile.ProfileActivity
 import com.mobile.fkpn.content.profile.password.PasswordActivity
 import com.mobile.fkpn.controller.ImageGeneratorController
 import com.mobile.fkpn.controller.LogoutController
@@ -37,6 +39,7 @@ class ProfileFragment : Fragment() {
     private lateinit var alertKTP: TextView
     private lateinit var logout: Button
     private lateinit var password: Button
+    private lateinit var editProfile: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +53,7 @@ class ProfileFragment : Fragment() {
         alertKTP = view.findViewById(R.id.alertTextView)
         logout = view.findViewById(R.id.logoutButton)
         password = view.findViewById(R.id.passwordButton)
+        editProfile = view.findViewById(R.id.updateProfileButton)
 
         token = Token(view.context)
         loadingFragment = LoadingFragment(this.requireActivity())
@@ -71,6 +75,11 @@ class ProfileFragment : Fragment() {
             startActivity(goTo)
         }
 
+        editProfile.setOnClickListener {
+            goTo = Intent(activity, ProfileActivity::class.java)
+            startActivity(goTo)
+        }
+
         return view
     }
 
@@ -80,9 +89,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun changeProfileImage(urlImage: String) {
-        imageGeneratorController = ImageGeneratorController(urlImage)
-        val gitBitmap = imageGeneratorController.execute().get()
-        profileImage.setImageBitmap(gitBitmap)
+        if (urlImage.isNotEmpty()) {
+            imageGeneratorController = ImageGeneratorController(urlImage)
+            val gitBitmap = imageGeneratorController.execute().get()
+            profileImage.setImageBitmap(gitBitmap)
+        }
         loadingFragment.closeDialog()
     }
 
@@ -96,7 +107,7 @@ class ProfileFragment : Fragment() {
                     phone.text = response.getJSONObject("data")["phone"].toString()
                     changeProfileImage(response.getJSONObject("data")["image"].toString())
                 }
-            } else if (response["code"] == 426 || response["code"] == 401) {
+            } else {
                 activity?.runOnUiThread {
                     goTo = Intent(activity?.applicationContext, MainActivity::class.java)
                     activity?.finish()

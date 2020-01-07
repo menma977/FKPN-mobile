@@ -48,7 +48,8 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:contentDescription="@string/logo"
-                        tools:src="@tools:sample/avatars" />
+                        android:src="@mipmap/ic_launcher_round"
+                        tools:src="@mipmap/ic_launcher_round" />
 
                     <LinearLayout
                         android:layout_width="0dp"
