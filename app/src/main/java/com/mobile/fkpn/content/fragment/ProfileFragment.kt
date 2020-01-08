@@ -9,13 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mobile.fkpn.LoginActivity
 import com.mobile.fkpn.MainActivity
 import com.mobile.fkpn.R
 import com.mobile.fkpn.TokenActivity
+import com.mobile.fkpn.content.profile.KTPUploadActivity
 import com.mobile.fkpn.content.profile.ProfileActivity
 import com.mobile.fkpn.content.profile.password.PasswordActivity
+import com.mobile.fkpn.content.profile.passwordX.PasswordXActivity
 import com.mobile.fkpn.controller.ImageGeneratorController
 import com.mobile.fkpn.controller.LogoutController
 import com.mobile.fkpn.controller.ProfileController
@@ -39,7 +42,10 @@ class ProfileFragment : Fragment() {
     private lateinit var alertKTP: TextView
     private lateinit var logout: Button
     private lateinit var password: Button
+    private lateinit var passwordX: Button
+    private lateinit var ktpUpload: Button
     private lateinit var editProfile: Button
+    private var premium = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +59,8 @@ class ProfileFragment : Fragment() {
         alertKTP = view.findViewById(R.id.alertTextView)
         logout = view.findViewById(R.id.logoutButton)
         password = view.findViewById(R.id.passwordButton)
+        passwordX = view.findViewById(R.id.passwordXButton)
+        ktpUpload = view.findViewById(R.id.ktpButton)
         editProfile = view.findViewById(R.id.updateProfileButton)
 
         token = Token(view.context)
@@ -73,6 +81,20 @@ class ProfileFragment : Fragment() {
         password.setOnClickListener {
             goTo = Intent(activity, PasswordActivity::class.java)
             startActivity(goTo)
+        }
+
+        passwordX.setOnClickListener {
+            goTo = Intent(activity, PasswordXActivity::class.java)
+            startActivity(goTo)
+        }
+
+        ktpUpload.setOnClickListener {
+            if (premium == 0) {
+                goTo = Intent(activity, KTPUploadActivity::class.java)
+                startActivity(goTo)
+            } else {
+                Toast.makeText(activity, "Anda sudah upload KTP", Toast.LENGTH_SHORT).show()
+            }
         }
 
         editProfile.setOnClickListener {
@@ -105,7 +127,12 @@ class ProfileFragment : Fragment() {
                 activity?.runOnUiThread {
                     name.text = response.getJSONObject("data")["name"].toString()
                     phone.text = response.getJSONObject("data")["phone"].toString()
+                    premium = response.getJSONObject("data")["premium"].toString().toInt()
                     changeProfileImage(response.getJSONObject("data")["image"].toString())
+                    if (premium == 0) {
+                        val massage = "Anda Belum Mengupload KTP"
+                        alertKTP.text = massage
+                    }
                 }
             } else {
                 activity?.runOnUiThread {

@@ -45,7 +45,7 @@ class PasswordActivity : AppCompatActivity() {
                 body["password"] = oldPassword.text.toString()
                 body["new_password"] = password.text.toString()
                 body["new_c_password"] = passwordC.text.toString()
-                response = PasswordController.Post.Password(body, token.auth).execute().get()
+                response = PasswordController.Post.PasswordX(body, token.auth).execute().get()
                 println(response)
                 when {
                     response["code"] == 200 -> {

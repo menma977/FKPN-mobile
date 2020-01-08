@@ -1,22 +1,21 @@
 package com.mobile.fkpn.content.menu
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
-import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.*
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
 import com.mobile.fkpn.R
-import java.net.URISyntaxException
+import com.mobile.fkpn.model.EndCode
+import com.mobile.fkpn.model.Token
+import com.mobile.fkpn.model.Url
 import java.net.URL
-import java.util.*
 
 class BinaryActivity : AppCompatActivity() {
 
+    private lateinit var token: Token
     private lateinit var web: WebView
-    lateinit var mWebBackForwardList: WebBackForwardList
-    private var url = URL("https://www.padippob.com/home")
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +23,7 @@ class BinaryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_binary)
 
         web = findViewById(R.id.webView)
+        token = Token(this)
 
         web.removeAllViews()
         web.webViewClient = WebViewClient()
@@ -31,7 +31,9 @@ class BinaryActivity : AppCompatActivity() {
         web.settings.javaScriptEnabled = true
         web.settings.domStorageEnabled = true
         web.settings.javaScriptCanOpenWindowsAutomatically = true
+        val url = URL(Url.getBinary().toString())
 
-        web.loadUrl(url.toString())
+        val endCode = EndCode().endCode(token.username)
+        web.loadUrl("$url/home/$endCode")
     }
 }

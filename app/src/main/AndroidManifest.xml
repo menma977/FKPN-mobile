@@ -20,7 +20,27 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".content.profile.ProfileActivity"></activity>
+        <activity
+            android:name=".content.profile.KTPUploadActivity"
+            android:label="Upload KTP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.profile.passwordX.PasswordXActivity"
+            android:label="@string/password_x">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".content.profile.ProfileActivity"
+            android:label="@string/profile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".content.HomeActivity" />
+        </activity>
         <activity
             android:name=".content.profile.password.PasswordActivity"
             android:label="@string/password">

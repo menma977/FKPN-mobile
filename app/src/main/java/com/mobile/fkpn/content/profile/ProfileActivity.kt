@@ -71,18 +71,10 @@ class ProfileActivity : AppCompatActivity() {
                 values.put(MediaStore.Images.Media.TITLE, "image")
                 values.put(MediaStore.Images.Media.DESCRIPTION, "image")
                 values.put(MediaStore.Images.Media.SIZE, 5)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    values.put(MediaStore.Images.Media.WIDTH, 1)
-                    values.put(MediaStore.Images.Media.HEIGHT, 1)
-                }
                 image = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
                 val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 callCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image)
                 callCameraIntent.putExtra(MediaStore.Images.Media.SIZE, 5)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    callCameraIntent.putExtra(MediaStore.Images.Media.WIDTH, 15)
-                    callCameraIntent.putExtra(MediaStore.Images.Media.HEIGHT, 15)
-                }
                 startActivityForResult(callCameraIntent, 0)
             } catch (e: Exception) {
                 e.printStackTrace()
