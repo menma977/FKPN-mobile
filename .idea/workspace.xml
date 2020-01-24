@@ -11,8 +11,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +75,7 @@
     <property name="android.sdk.path" value="D:/sowftwhere/Nandroid" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="D:/Android/Kotlin/M-Pay" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FKPN" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,9 +89,8 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Kotlin" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Git\FKPN-mobile\app\src\main\res\drawable-v24" />
-      <recent name="D:\Android\Kotlin\FKPN-mobile\app\src\main\res\drawable" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Git\FKPN-mobile\app\src\main\res\drawable" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.mobile.fkpn.content.profile" />
@@ -105,8 +102,9 @@
     <key name="android.template.parentActivityClass">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Git\FKPN-mobile\app\src\main\res\drawable" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Git\FKPN-mobile\app\src\main\res\drawable-v24" />
+      <recent name="D:\Android\Kotlin\FKPN-mobile\app\src\main\res\drawable" />
     </key>
   </component>
   <component name="RunManager">
@@ -180,6 +178,9 @@
       <workItem from="1579075161901" duration="126000" />
       <workItem from="1579075300279" duration="152000" />
       <workItem from="1579075465414" duration="432000" />
+      <workItem from="1579238744266" duration="67000" />
+      <workItem from="1579511953088" duration="1089000" />
+      <workItem from="1579516933478" duration="149000" />
     </task>
     <servers />
   </component>
@@ -191,10 +192,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="272" y="23" key="#Notifications/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579006217843" />
-    <state x="460" y="120" key="FileChooserDialogImpl" timestamp="1579059613918">
+    <state x="460" y="120" key="FileChooserDialogImpl" timestamp="1579238809176">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="460" y="120" key="FileChooserDialogImpl/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579059613918" />
+    <state x="460" y="120" key="FileChooserDialogImpl/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579238809176" />
     <state x="160" y="0" key="SettingsEditor" timestamp="1579075726043">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -204,6 +205,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="376" y="189" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579075472038" />
+    <state x="376" y="96" width="607" height="536" key="find.popup" timestamp="1579512005716">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="376" y="96" width="607" height="536" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579512005716" />
     <state x="251" y="16" key="scopes" timestamp="1579075652340">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
