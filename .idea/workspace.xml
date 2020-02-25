@@ -10,8 +10,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_gotev_uploadservice_2_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_gotev_uploadservice_2_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobile/fkpn/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobile/fkpn/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +82,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_XL_API_27" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-01-14T12:52:57.696874900Z" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/sowftwhere/Nandroid" />
@@ -83,10 +96,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Kotlin" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -181,6 +194,41 @@
       <workItem from="1579238744266" duration="67000" />
       <workItem from="1579511953088" duration="1089000" />
       <workItem from="1579516933478" duration="149000" />
+      <workItem from="1580550993530" duration="60000" />
+      <workItem from="1580552425944" duration="48000" />
+      <workItem from="1580790043282" duration="28000" />
+      <workItem from="1580810316110" duration="254000" />
+      <workItem from="1580810634811" duration="39000" />
+      <workItem from="1580810738262" duration="1109000" />
+      <workItem from="1580875239138" duration="18000" />
+      <workItem from="1580882702765" duration="27000" />
+      <workItem from="1580886140194" duration="1118000" />
+      <workItem from="1580987452641" duration="148000" />
+      <workItem from="1581054868834" duration="1032000" />
+      <workItem from="1581056018801" duration="390000" />
+      <workItem from="1581057187187" duration="7000" />
+      <workItem from="1581058524592" duration="43000" />
+      <workItem from="1581059688856" duration="23000" />
+      <workItem from="1581059919940" duration="29000" />
+      <workItem from="1581137456295" duration="71000" />
+      <workItem from="1581145969361" duration="65000" />
+      <workItem from="1581320273434" duration="35000" />
+      <workItem from="1581320589035" duration="835000" />
+      <workItem from="1581333887950" duration="135000" />
+      <workItem from="1581401449853" duration="323000" />
+      <workItem from="1581403498210" duration="1397000" />
+      <workItem from="1581405268964" duration="608000" />
+      <workItem from="1581411122482" duration="20000" />
+      <workItem from="1581578731480" duration="592000" />
+      <workItem from="1581579442082" duration="14000" />
+      <workItem from="1581579468210" duration="265000" />
+      <workItem from="1581580075934" duration="204000" />
+      <workItem from="1581581178876" duration="24000" />
+      <workItem from="1581581410443" duration="18000" />
+      <workItem from="1581582539665" duration="12000" />
+      <workItem from="1581591039978" duration="14000" />
+      <workItem from="1581664705494" duration="14000" />
+      <workItem from="1581666293546" duration="17000" />
     </task>
     <servers />
   </component>
@@ -196,15 +244,15 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="460" y="120" key="FileChooserDialogImpl/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579238809176" />
-    <state x="160" y="0" key="SettingsEditor" timestamp="1579075726043">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state x="1360" y="0" key="SettingsEditor" timestamp="1580882718553">
+      <screen x="1360" y="0" width="1024" height="728" />
     </state>
     <state x="160" y="0" key="SettingsEditor/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579075726043" />
-    <state x="1360" y="0" key="SettingsEditor/1360.0.1024.728/0.0.1360.728@1360.0.1024.728" timestamp="1579003020985" />
-    <state x="376" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1579075472038">
+    <state x="1360" y="0" key="SettingsEditor/1360.0.1024.728/0.0.1360.728@1360.0.1024.728" timestamp="1580882718553" />
+    <state x="376" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1581058527026">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="376" y="189" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1579075472038" />
+    <state x="376" y="189" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1581058527026" />
     <state x="376" y="96" width="607" height="536" key="find.popup" timestamp="1579512005716">
       <screen x="0" y="0" width="1360" height="728" />
     </state>

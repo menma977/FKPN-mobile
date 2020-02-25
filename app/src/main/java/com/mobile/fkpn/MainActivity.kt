@@ -1,18 +1,13 @@
 package com.mobile.fkpn
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.mobile.fkpn.content.HomeActivity
 import com.mobile.fkpn.controller.VerificationController
 import com.mobile.fkpn.model.Token
 import org.json.JSONObject
-import java.lang.Exception
 import java.util.*
 import kotlin.concurrent.schedule
 

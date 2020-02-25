@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_home"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/background_home"
+              android:gravity="center"
+              android:orientation="vertical"
+              tools:context=".MainActivity">
 
     <ProgressBar
-        style="?android:attr/progressBarStyle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_round"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/colorPrimary"
-        tools:targetApi="lollipop" />
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/ic_launcher_round"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            tools:targetApi="lollipop"/>
 </LinearLayout>

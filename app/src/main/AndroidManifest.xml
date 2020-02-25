@@ -1,140 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.mobile.fkpn">
+          xmlns:dist="http://schemas.android.com/apk/distribution"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.mobile.fkpn">
 
-    <dist:module dist:instant="true" />
+    <dist:module dist:instant="true"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+            tools:targetApi="m">
         <activity
-            android:name=".content.profile.KTPUploadActivity"
-            android:label="Upload KTP">
+                android:name=".content.profile.KTPUploadActivity"
+                android:label="Upload KTP">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.profile.passwordX.PasswordXActivity"
-            android:label="@string/password_x">
+                android:name=".content.profile.passwordX.PasswordXActivity"
+                android:label="@string/password_x">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.profile.ProfileActivity"
-            android:label="@string/profile">
+                android:name=".content.profile.ProfileActivity"
+                android:label="@string/profile">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.profile.password.PasswordActivity"
-            android:label="@string/password">
+                android:name=".content.profile.password.PasswordActivity"
+                android:label="@string/password">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.deposit.DepositListActivity"
-            android:label="@string/deposit">
+                android:name=".content.menu.deposit.DepositListActivity"
+                android:label="@string/deposit">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.bonus.BonusListActivity"
-            android:label="@string/bonus">
+                android:name=".content.menu.bonus.BonusListActivity"
+                android:label="@string/bonus">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.vocerPoint.VocerPointListActivity"
-            android:label="@string/vocer_point">
+                android:name=".content.menu.vocerPoint.VocerPointListActivity"
+                android:label="@string/vocer_point">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.ticket.TicketListActivity"
-            android:label="Ticket List">
+                android:name=".content.menu.ticket.TicketListActivity"
+                android:label="Ticket List">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.TicketActivity"
-            android:label="@string/ticket">
+                android:name=".content.menu.TicketActivity"
+                android:label="@string/ticket">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.DepositActivity"
-            android:label="@string/deposit">
+                android:name=".content.menu.DepositActivity"
+                android:label="@string/deposit">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.WithdrawActivity"
-            android:label="@string/withdraw">
+                android:name=".content.menu.WithdrawActivity"
+                android:label="@string/withdraw">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.BinaryActivity"
-            android:label="@string/binary">
+                android:name=".content.menu.BinaryActivity"
+                android:label="@string/binary">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.menu.PackageJoinActivity"
-            android:label="@string/package_join">
+                android:name=".content.menu.PackageJoinActivity"
+                android:label="@string/package_join">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".content.HomeActivity"
-            android:theme="@style/AppThemeNoActionBar" />
+                android:name=".content.HomeActivity"
+                android:theme="@style/AppThemeNoActionBar"/>
         <activity
-            android:name=".TokenActivity"
-            android:theme="@style/AppThemeNoActionBar" />
+                android:name=".TokenActivity"
+                android:theme="@style/AppThemeNoActionBar"/>
         <activity
-            android:name=".RegisterActivity"
-            android:label="@string/register">
+                android:name=".RegisterActivity"
+                android:label="@string/register">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".content.HomeActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".content.HomeActivity"/>
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/AppThemeNoActionBar" />
+                android:name=".LoginActivity"
+                android:theme="@style/AppThemeNoActionBar"/>
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppThemeNoActionBar">
+                android:name=".MainActivity"
+                android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>
